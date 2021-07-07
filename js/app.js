@@ -15,6 +15,7 @@ for (let suit of suits) {
   for (let value of values) {
     deck.push(suit+value)
   }
+  
 }
 
 function shuffle(deck){
@@ -26,17 +27,22 @@ function shuffle(deck){
   return shuffledDeck
 }
 // passing deck to function shuffle to be shuffled
-shuffle(deck)
 let playerDeck = deck.splice(0,26)
 function round(){
+  shuffle(deck)
 card1.push(deck.splice(0,1))
+render (card1El)
 card2.push(playerDeck.splice(0,1))
+render(card2El)
 if (card1.values>card2.values){
   deck.push(card1)&&(card2)
+  render(deckEl)
 }
 if (card1.values<card2.values){
   playerDeck.push(card1)&&(card2)
+  render(playerdeckEl)
 }
+// or i could push into seperate array and push all into winning
 if (card1.values===card2.values){
   if (deck.length<4){
     // if player does have cards for war push remaing cars into other deck array
@@ -66,7 +72,7 @@ function checkwin(){
   if (deck.length===0){
     console.log ('player 1 wins')
   }
-  if (player2Deck.length===0){
+  if (playerDeck.length===0){
     console.log('player 2 wins')
   }
 }

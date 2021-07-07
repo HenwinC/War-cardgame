@@ -1,5 +1,13 @@
-
 @charset "UTF-8";
+body{
+  background-color:black;
+}
+#flex{
+  padding-top: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 .card {
   box-sizing: border-box;
   display: inline-block;
