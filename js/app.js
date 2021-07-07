@@ -1,6 +1,8 @@
 let deck1El = document.getElementById('deck1')
 let deck2El = document.getElementById('deck2')
 
+document.getElementById('btn').addEventListener('click', handleClick)
+
 const suits = ['H', 'D', 'S', 'C']
 const values = ['02','03','04','05','06','07','08','09','10','J','Q','K','A']
 let playerDeck = []
