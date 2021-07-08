@@ -3,24 +3,32 @@ let playerdeckEl = document.getElementById('playerDeck')
 let card1El = document.getElementById('card1')
 let card2El = document.getElementById('card2')
 
-document.getElementById('btn').addEventListener('click', round)
+document.getElementById('btn').addEventListener('click', shuffle)
+let deck= { dA: 14 ,dQ: 12,dK: 13,dJ: 11,d10:10,d09: 9,d08: 8,d07: 7,d06: 6,d05: 5,d04: 4,d03: 3,d02: 2,hA: 14,hQ: 12,hK: 13,hJ: 11,h10:10,h09: 9,h08: 8,h07: 7,h06: 6,h05: 5,h04: 4,h03: 3,h02: 2,cA: 14,cQ: 12,cK: 13,cJ: 11,c10:10,c09: 9,c08: 8,c07: 7,c06: 6,c05: 5,c04: 4,c03: 3,c02: 2,sA: 14,sQ: 12,sK: 13,sJ: 11,s10:10,s09: 9,s08: 8,s07: 7,s06: 6,s05: 5,s04: 4,s03: 3,s02: 2,}
 
-const suits = ['H', 'D', 'S', 'C']
-const values = ['02','03','04','05','06','07','08','09','10','J','Q','K','A']
-let deck = []
+
+
+// let A=14
+// let K=13
+// let Q=12
+// let J=11
+// const suits = ['H', 'D', 'S', 'C']
+// const values = ['02','03','04','05','06','07','08','09','10','J','Q','K','A']
+
+
 let card1 =[]
 let card2=[]
 let x = 1
-for (let suit of suits) {
-  for (let value of values) {
-    deck.push(suit+value)
-  }
-  
-}
+// for (let suit of suits) {
+//   for (let value of values) {
+//     deck.push(suit+value)
+//   }
+//   shuffle()
+// }
 
 function shuffle(deck){
-  let shuffledDeck = []
-  while (deck.length !== 0 ) {
+  if (deck.length !== 0) {
+    let shuffledDeck = []
     let randIdx = Math.floor(Math.random() * deck.length)
     shuffledDeck.push(deck.splice(randIdx,1)[0])
   }
