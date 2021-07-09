@@ -10,5 +10,5 @@ Language used JavaScript, HTML, CSS,BootStrap
 Hosted on GitHub at https://henwinc.github.io/War-cardgame/
 
 Things to add in the future: sounds effect for war and card animations
-CSS Style
+CSS Style code
 https://dev.to/babib/amazing-pure-html-and-css-background-animations-4dim
