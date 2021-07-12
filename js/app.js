@@ -4,9 +4,9 @@ let card1El = document.getElementById('card1')
 let card2El = document.getElementById('card2')
 let player1Count = document.getElementById('player1Count')
 let player2Count = document.getElementById('player2Count')
-let text =document.getElementById('')
+let text =document.getElementById('text')
 let deck=[]
-document.getElementById('btn').addEventListener("click", render)
+document.getElementById('btn').addEventListener("click", game)
 const CARD_VALUE_MAP = {
   dA: 14 ,dQ: 12,dK: 13,dJ: 11,d10:10,d09: 9,d08: 8,d07: 7,d06: 6,d05: 5,d04: 4,d03: 3,d02: 2,hA: 14,hQ: 12,hK: 13,hJ: 11,h10:10,h09: 9,h08: 8,h07: 7,h06: 6,h05: 5,h04: 4,h03: 3,h02: 2,cA: 14,cQ: 12,cK: 13,cJ: 11,c10:10,c09: 9,c08: 8,c07: 7,c06: 6,c05: 5,c04: 4,c03: 3,c02: 2,sA: 14,sQ: 12,sK: 13,sJ: 11,s10:10,s09: 9,s08: 8,s07: 7,s06: 6,s05: 5,s04: 4,s03: 3,s02: 2
 }
@@ -30,9 +30,11 @@ deck.sort((a,b)=> 0.5 - Math.random())
 }
   shuffle(deck)
   let playerDeck = deck.splice(0,26)
-  const card1 = deck.slice(0,1)
-  const card2 = playerDeck.slice(0,1)
+  let card1 = deck.slice(0,1)
+  let card2 = playerDeck.slice(0,1)
 function render() {
+let card1 = deck.slice(0,1)
+let card2 = playerDeck.slice(0,1)
   if(card1===1){
     card1El.classList.remove(cartToRemove)
   }
@@ -51,9 +53,7 @@ function render() {
      setTimeout(()=> {
      card2El.classList.remove('animate__animated','animate__rotateOutUpRight')
   }, 1000)
-round()
 }
-
 
 // this function will determine who round winner is
 // if card value is greater than other push the card into others array. while also taking off top card
@@ -82,7 +82,6 @@ function round(){
    if (CARD_VALUE_MAP[card2] === CARD_VALUE_MAP[card1]){
      war()
   }  
-   checkWin()
 }
 // if values are equal each player will place 3 cards into a war deck and flip a forth to see who wins all 8 cards
  function war(){
@@ -130,21 +129,25 @@ function round(){
  }
 //  function that checks win or starts new round
 function checkWin() {
-  console.log ('winf')
   if (deck.length===0){
     player1Win() 
   }
   if (playerDeck.length===0){
     Player2Win() } 
-  else render()
 }
 // display text is player wins
  function player1Win(){
-  text.innerText('Player 1 Wins!')
+  console.log('player1win')
+  text.innerText= ('Player 1 Wins!')
 
  }
 //  display text is player loses
  function Player2Win() {
-   text.innerText('Player 2 Wins!')
+  console.log('player2win')
+   text.innerText= ('Player 2 Wins!')
  }
- 
+function game(){
+  render (),
+  round(),
+  checkWin();
+}
