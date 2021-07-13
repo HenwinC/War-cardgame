@@ -30,11 +30,10 @@ deck.sort((a,b)=> 0.5 - Math.random())
 }
   shuffle(deck)
   let playerDeck = deck.splice(0,26)
-  let card1 = deck.slice(0,1)
-  let card2 = playerDeck.slice(0,1)
+  
 function render() {
-let card1 = deck.slice(0,1)
-let card2 = playerDeck.slice(0,1)
+let card1 = deck[0]
+let card2 = playerDeck[0]
   if(card1===1){
     card1El.classList.remove(cartToRemove)
   }
@@ -54,96 +53,93 @@ let card2 = playerDeck.slice(0,1)
      card2El.classList.remove('animate__animated','animate__rotateOutUpRight')
   }, 1000)
 }
-
-// this function will determine who round winner is
 // if card value is greater than other push the card into others array. while also taking off top card
 function round(){
-  if(deck.length && card1.length=== 0){
+  if(deck.length === 0){
     player1Win()
   }
-  if(playerDeck.length && card2.length=== 0){
+  if(playerDeck.length === 0){
     Player2Win()
   }
 
-  if (CARD_VALUE_MAP[card2[0]] > CARD_VALUE_MAP[card1[0]]){
-    deck.shift(card1[0])
-    playerDeck.push(card1[0])
-    playerDeck.shift(card2[0])
-    playerDeck.push (card2[0])
+  if (CARD_VALUE_MAP[playerDeck[0]] > CARD_VALUE_MAP[deck[0]]){
+    deck.shift(deck[0])
+    playerDeck.push(deck[0])
+    playerDeck.shift(playerDeck[0])
+    playerDeck.push (playerDeck[0])
     checkWin()
   }
-   if (CARD_VALUE_MAP[card2[0]] < CARD_VALUE_MAP[card1[0]]){
-    playerDeck.shift(card2[0])
-    deck.push(card2[0])
-    deck.shift(card1[0])
-    deck.push(card1[0])
+   if (CARD_VALUE_MAP[playerDeck[0]] < CARD_VALUE_MAP[deck[0]]){
+    playerDeck.shift(playerDeck[0])
+    deck.push(playerDeck[0])
+    deck.shift(deck[0])
+    deck.push(deck[0])
     checkWin()
    } 
-   if (CARD_VALUE_MAP[card2] === CARD_VALUE_MAP[card1]){
+   if (CARD_VALUE_MAP[playerDeck[0]] === CARD_VALUE_MAP[deck[0]]){
      war()
   }  
 }
 // if values are equal each player will place 3 cards into a war deck and flip a forth to see who wins all 8 cards
  function war(){
    if (playerDeck.length < 4){
-     playerLose()
+     player1Win()
    }
    if (deck.length < 4){
-     playerWin()
+     player2Win()
    }
-   let warCard = deck.shift(3,1)
-   let playerWarCard = playerDeck.shift(3,1)
-   war1 = deck.shift(0,1)
-   war2 = deck.shift(1,1)
-   war3 = deck.shift(2,1)
-   war4 = playerDeck.shift(0,1)
-   war5 = playerDeck.shift(0,1)
-   war6 = playerDeck.shift(0,1)
+   let warCard = deck[4]
+   let playerWarCard = playerDeck[4]
+   war1 = deck.splice[1,2]
+   war2 = deck.splice(2,3)
+   war3 = deck.splice(3,4)
+   war4 = playerDeck.splice[1,1]
+   war5 = playerDeck.splice[2,1]
+   war6 = playerDeck.splice[3,1]
 
-  if (CARD_VALUE_MAP[playerWarCard[0]] > CARD_VALUE_MAP[warCard[0]]){
-    deck.shift(card1[0])
-    playerDeck.shift(card2[0])
-    playerDeck.push(card1[0])
-    playerDeck.push(card2[0])
-    playerDeck.push(war1[0])
-    playerDeck.push(war2[0])
-    playerDeck.push(war3[0])
-    deck.push(warCard[0])
-    deck.push(playerWarCard[0])
+  if (CARD_VALUE_MAP[playerWarCard[4]] > CARD_VALUE_MAP[warCard[4]]){
+    deck.shift[0]
+    playerDeck.shift[0]
+    playerDeck.push[warCard[0]]
+    playerDeck.push[playerWarCard[0]]
+    playerDeck.push[war1[0]]
+    playerDeck.push[war2[0]]
+    playerDeck.push[war3[0]]
+    playerDeck.push[war4[0]]
+    playerDeck.push[war5[0]]
+    playerDeck.push[war6[0]]
   }
-  if (CARD_VALUE_MAP[playerWarCard[0]]< CARD_VALUE_MAP[warCard[0]]){
-    playerDeck.shift(card2[0])
-    deck.shift(card1[0])
-    deck.push(card2[0])
-    deck.push(card1[0])
-    deck.push(war4[0])
-    deck.push(war5[0])
-    deck.push(war6[0])
-    deck.push(warCard[0])
-    deck.push(playerWarCard[0])
+  if (CARD_VALUE_MAP[playerWarCard[4]]< CARD_VALUE_MAP[warCard[4]]){
+    playerDeck.shift[0]
+    deck.shift[0]
+    deck.push[0]
+    deck.push[playerWarCard[0]]
+    deck.push[war1[0]]
+    deck.push[war2[0]]
+    deck.push[war3[0]]
+    deck.push[war4[0]]
+    deck.push[war5[0]]
+    deck.push[war6[0]]
   }
-  if (CARD_VALUE_MAP[playerWarCard[0]] = CARD_VALUE_MAP[warCard[0]]){
+  if (CARD_VALUE_MAP[playerWarCard[4]] = CARD_VALUE_MAP[warCard[4]]){
     war()
   }
   checkWin ()
  }
-//  function that checks win or starts new round
+//  function that checks win 
 function checkWin() {
-  if (deck.length===0){
+    if (deck.length === 0){
     player1Win() 
   }
-  if (playerDeck.length===0){
+    if (playerDeck.length===0){
     Player2Win() } 
 }
 // display text is player wins
  function player1Win(){
-  console.log('player1win')
   text.innerText= ('Player 1 Wins!')
-
  }
-//  display text is player loses
+//  display text is player 2 wins
  function Player2Win() {
-  console.log('player2win')
    text.innerText= ('Player 2 Wins!')
  }
 function game(){
