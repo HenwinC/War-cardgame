@@ -68,7 +68,7 @@ function round(){
   }
 
   if (CARD_VALUE_MAP[playerDeck[0]] > CARD_VALUE_MAP[deck[0]]){
-    console.log((CARD_VALUE_MAP[playerDeck[0]] > CARD_VALUE_MAP[deck[0]]))
+      text.innerText= ('Player 2 Wins the Round!')
       deck.shift(deck[0])
       playerDeck.push(deck[0])
       playerDeck.shift(playerDeck[0])
@@ -76,6 +76,7 @@ function round(){
       checkWin()
   }
   else if (CARD_VALUE_MAP[playerDeck[0]] < CARD_VALUE_MAP[deck[0]]){
+      text.innerText= ('Player 1 Wins the Round!')
       playerDeck.shift(playerDeck[0])
       deck.push(playerDeck[0])
       deck.shift(deck[0])
@@ -88,6 +89,7 @@ function round(){
 }
 // if values are equal each player will place 3 cards into a war deck and flip a forth to see who wins all 8 cards
  function war(){
+  text.innerText= ('War Time!')
   if (deck.length < 5){
    player1Win()
     }
@@ -96,42 +98,42 @@ function round(){
     player2Win()
     } 
 
-   let warCard1 = deck.splice[4,1]
-   let warCard2 = playerDeck.splice[4,1]
-   let war1 = deck.splice[1,1]
+   let warCard1 = deck.splice(4,1)
+   let warCard2 = playerDeck.splice(4,1)
+   let war1 = deck.splice(1,1)
    let war2 = deck.splice(2,1)
    let war3 = deck.splice(3,1)
-   let war4 = playerDeck.splice[1,1]
-   let war5 = playerDeck.splice[2,1]
-   let war6 = playerDeck.splice[3,1]
+   let war4 = playerDeck.splice(1,1)
+   let war5 = playerDeck.splice(2,1)
+   let war6 = playerDeck.splice(3,1)
 
   if (CARD_VALUE_MAP[playerDeck[4]] > CARD_VALUE_MAP[deck[4]]){
       deck.shift()
       playerDeck.shift()
-      playerDeck.push[deck[0]]
-      playerDeck.push[playerDeck[0]]
-      playerDeck.push[warCard1[0]]
-      playerDeck.push[warCard2[0]]
-      playerDeck.push[war1[0]]
-      playerDeck.push[war2[0]]
-      playerDeck.push[war3[0]]
-      playerDeck.push[war4[0]]
-      playerDeck.push[war5[0]]
-      playerDeck.push[war6[0]]
+      playerDeck.push(deck[0])
+      playerDeck.push(playerDeck[0])
+      playerDeck.push(warCard1[0])
+      playerDeck.push(warCard2[0])
+      playerDeck.push(war1[0])
+      playerDeck.push(war2[0])
+      playerDeck.push(war3[0])
+      playerDeck.push(war4[0])
+      playerDeck.push(war5[0])
+      playerDeck.push(war6[0])
   }
   else if (CARD_VALUE_MAP[playerDeck[4]]< CARD_VALUE_MAP[deck[4]]){
       playerDeck.shift()
       deck.shift()
-      deck.push[deck[0]]
-      deck.push[playerDeck[0]]
-      deck.push[warCard1[0]]
-      deck.push[warCard2[0]]
-      deck.push[war1[0]]
-      deck.push[war2[0]]
-      deck.push[war3[0]]
-      deck.push[war4[0]]
-      deck.push[war5[0]]
-      deck.push[war6[0]]
+      deck.push(deck[0])
+      deck.push(playerDeck[0])
+      deck.push(warCard1[0])
+      deck.push(warCard2[0])
+      deck.push(war1[0])
+      deck.push(war2[0])
+      deck.push(war3[0])
+      deck.push(war4[0])
+      deck.push(war5[0])
+      deck.push(war6[0])
   }
   else if (CARD_VALUE_MAP[playerDeck[4]] = CARD_VALUE_MAP[deck[4]]){
       war()

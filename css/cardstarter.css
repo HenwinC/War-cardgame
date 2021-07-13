@@ -1,12 +1,21 @@
 @charset "UTF-8";
+input{
+  font-size: 25;
+  background-color:transparent;
+  border: transparent;
+}
 #text{
-  font-size: 15px;
+  font-size: 30px;
   align-content: center;
 }
 h2{
-  font-size: 50px;
+  font-size: 30px;
   font-style: normal black;
   text-align: center;
+}
+#btn{
+  width: 350px;
+  height: 100px;
 }
 
 body{
