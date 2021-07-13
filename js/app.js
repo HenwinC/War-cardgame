@@ -38,10 +38,10 @@ function render() {
 let card1 = deck[0]
 let card2 = playerDeck[0]
 
-  if (card1===1){
+  if (card1===!0){
     card1El.classList.remove(card1)
     }
-    
+
   cardToRemove = card1
   card1El.classList.add(card1)
   card1El.classList.add('animate__animated','animate__rotateOutUpLeft')
@@ -51,7 +51,7 @@ let card2 = playerDeck[0]
     }, 1000)
 
 
-  if(card2===1){
+  if(card2===!1){
     card2El.classList.remove(card2)
   }
      cardToRemove1 = card2
@@ -129,6 +129,8 @@ function round(){
       playerDeck.push(war4[0])
       playerDeck.push(war5[0])
       playerDeck.push(war6[0])
+      score.innerText= (playerDeck.length)
+      score2.innerText= (deck.length)
      }
   else if (CARD_VALUE_MAP[playerDeck[4]]< CARD_VALUE_MAP[deck[4]]){
       text.innerText= ('Player 1 wins War!')
@@ -144,9 +146,13 @@ function round(){
       deck.push(war4[0])
       deck.push(war5[0])
       deck.push(war6[0])
+      score.innerText= (playerDeck.length)
+      score2.innerText= (deck.length)
       }
   else if (CARD_VALUE_MAP[playerDeck[4]] = CARD_VALUE_MAP[deck[4]]){
       war()
+      score.innerText= (playerDeck.length)
+      score2.innerText= (deck.length)
     }
   checkWin ()
  }
