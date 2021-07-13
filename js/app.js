@@ -4,7 +4,9 @@ let card1El = document.getElementById('card1')
 let card2El = document.getElementById('card2')
 let player1Count = document.getElementById('player1Count')
 let player2Count = document.getElementById('player2Count')
-let text =document.getElementById('text')
+let text = document.getElementById('text')
+let score = document.getElementById('score')
+let score2 = document.getElementById('score2')
 let deck=[]
 document.getElementById('btn').addEventListener("click", game)
 const CARD_VALUE_MAP = {
@@ -39,6 +41,7 @@ let card2 = playerDeck[0]
   if (card1===1){
     card1El.classList.remove(card1)
     }
+    
   cardToRemove = card1
   card1El.classList.add(card1)
   card1El.classList.add('animate__animated','animate__rotateOutUpLeft')
@@ -70,19 +73,23 @@ function round(){
     }
 
   if (CARD_VALUE_MAP[playerDeck[0]] > CARD_VALUE_MAP[deck[0]]){
-      text.innerText= ('Player 2 wins the round!')
+      text.innerText= ('Player 2 wins round!')
       deck.shift(deck[0])
       playerDeck.push(deck[0])
       playerDeck.shift(playerDeck[0])
       playerDeck.push (playerDeck[0])
+      score.innerText= (playerDeck.length)
+      score2.innerText= (deck.length)
       checkWin()
       }
   else if (CARD_VALUE_MAP[playerDeck[0]] < CARD_VALUE_MAP[deck[0]]){
-      text.innerText= ('Player 1 wins the round!')
+      text.innerText= ('Player 1 wins round!')
       playerDeck.shift(playerDeck[0])
       deck.push(playerDeck[0])
       deck.shift(deck[0])
       deck.push(deck[0])
+      score.innerText= (playerDeck.length)
+      score2.innerText= (deck.length)
       checkWin()
       } 
   else if (CARD_VALUE_MAP[playerDeck[0]] === CARD_VALUE_MAP[deck[0]]){
