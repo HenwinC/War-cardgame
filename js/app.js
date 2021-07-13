@@ -96,8 +96,8 @@ function round(){
     player2Win()
     } 
 
-   let warCard1 = deck.splice[4,5]
-   let warCard2 = playerDeck.splice[4,5]
+   let warCard1 = deck.splice[4,1]
+   let warCard2 = playerDeck.splice[4,1]
    let war1 = deck.splice[1,1]
    let war2 = deck.splice(2,1)
    let war3 = deck.splice(3,1)
