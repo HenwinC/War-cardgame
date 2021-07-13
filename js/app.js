@@ -68,7 +68,7 @@ function round(){
   }
 
   if (CARD_VALUE_MAP[playerDeck[0]] > CARD_VALUE_MAP[deck[0]]){
-      text.innerText= ('Player 2 Wins the Round!')
+      text.innerText= ('Player 2 wins the round!')
       deck.shift(deck[0])
       playerDeck.push(deck[0])
       playerDeck.shift(playerDeck[0])
@@ -76,7 +76,7 @@ function round(){
       checkWin()
   }
   else if (CARD_VALUE_MAP[playerDeck[0]] < CARD_VALUE_MAP[deck[0]]){
-      text.innerText= ('Player 1 Wins the Round!')
+      text.innerText= ('Player 1 wins the round!')
       playerDeck.shift(playerDeck[0])
       deck.push(playerDeck[0])
       deck.shift(deck[0])
