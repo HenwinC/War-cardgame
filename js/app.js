@@ -38,7 +38,7 @@ let card2 = playerDeck[0]
   if(card1===1){
     card1El.classList.remove(card1)
   }
-  // cardToRemove = card1
+  cardToRemove = card1
   card1El.classList.add(card1)
   card1El.classList.add('animate__animated','animate__rotateOutUpLeft')
 
@@ -50,7 +50,7 @@ let card2 = playerDeck[0]
   if(card2===1){
     card2El.classList.remove(card2)
   }
-    //  cardToRemove1 = card2
+     cardToRemove1 = card2
      card2El.classList.add(card2)
      card2El.classList.add('animate__animated',    'animate__rotateOutUpRight')
      
@@ -89,13 +89,12 @@ function round(){
 }
 // if values are equal each player will place 3 cards into a war deck and flip a forth to see who wins all 8 cards
  function war(){
-  text.innerText= ('War Time!')
-  if (deck.length < 5){
-   player1Win()
+  if (deck.length < 4){
+    text.innerText= ('Player 2 Wins!')
     }
 
-  if (playerDeck.length < 5){
-    player2Win()
+  if (playerDeck.length < 4){
+    text.innerText= ('Player 1 Wins!')
     } 
 
    let warCard1 = deck.splice(4,1)
@@ -108,6 +107,7 @@ function round(){
    let war6 = playerDeck.splice(3,1)
 
   if (CARD_VALUE_MAP[playerDeck[4]] > CARD_VALUE_MAP[deck[4]]){
+    text.innerText= ('Player 2 wins War!')
       deck.shift()
       playerDeck.shift()
       playerDeck.push(deck[0])
@@ -122,6 +122,7 @@ function round(){
       playerDeck.push(war6[0])
   }
   else if (CARD_VALUE_MAP[playerDeck[4]]< CARD_VALUE_MAP[deck[4]]){
+    text.innerText= ('Player 1 wins War!')
       playerDeck.shift()
       deck.shift()
       deck.push(deck[0])
@@ -142,20 +143,15 @@ function round(){
  }
 //  function that checks win 
 function checkWin() {
+
   if (deck.length === 0){
-      player1Win() 
+    text.innerText= ('Player 2 Wins!')
   }
 
   if (playerDeck.length===0){
-      Player2Win() } 
-}
-function player1Win(){
-  text.innerText= ('Player 1 Wins!')
- }
-//  display text is player 2 wins
- function player2Win() {
-   text.innerText= ('Player 2 Wins!')
- }
+    text.innerText= ('Player 1 Wins!') } 
+    }
+
 function game(){
   render (),
   round(),
