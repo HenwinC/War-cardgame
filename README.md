@@ -13,7 +13,8 @@ Wire frame and Game photo:
 
 ![Screen Shot 2021-07-01 at 15 43 28](https://user-images.githubusercontent.com/82171107/125550560-30f6109b-1a92-4479-8375-0f4e65428f7a.png)
 
-![Uploading Screen Shot 2021-07-09 at 11.07.24.png…]()
+![Screen Shot 2021-07-09 at 11 07 24](https://user-images.githubusercontent.com/82171107/125551477-986c438b-8d58-4988-b0af-7848a53143d3.png)
+
 
 
 Features:
